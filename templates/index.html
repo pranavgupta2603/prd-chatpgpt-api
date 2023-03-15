@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Input Text Bar Example</title>
+        </head>
+        <body>
+            <h1>Input Text Bar Example</h1>
+            <p>Enter some text in the input field below:</p>
+            <form method="POST">
+                <input type="text" name="product-name" placeholder="Enter text here">
+				<input type="text" name="feature" placeholder="Enter text here">
+				<input type="text" name="overview" placeholder="Enter text here">
+		
+                <button type="submit">Submit</button>
+            </form>
+            <p id="output"></p>
+            <script>
+                const form = document.querySelector('form');
+                const output = document.getElementById('output');
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(form);
+                    const response = await fetch('/', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    output.textContent = data.output;
+                });
+            </script>
+        </body>
+        </html>
