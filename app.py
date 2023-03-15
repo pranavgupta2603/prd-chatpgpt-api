@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from chat import chat
 import openai
 
-openai.api_key = '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'
+openai.api_key = 'your-openai-key'
 message_history = []
 """
 app = Flask(__name__)
